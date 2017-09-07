@@ -5,9 +5,7 @@ body.landing {
 .hero-content {
     position: relative;
     min-height: 600px;
-    background-image: url(../assets/images/bloc_jams_bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: url(../assets/images/bloc_jams_bg.jpg) no-repeat center center;
     background-size: cover;
 }
 
@@ -34,9 +32,9 @@ body.landing {
     position: relative;
     padding: 2rem;
     text-align: center;
-    -webkit-transform: scaleX(0.9) translateY(3rem);
-    -moz-transform: scaleX(0.9) translateY(3rem);
-    transform: scaleX(0.9) translateY(3rem);
+    -webkit-transform: scaleX(0.6, 0.6) translateY(3rem);
+    -moz-transform: scaleX(0.6, 0.6) translateY(3rem);
+    transform: scaleX(0.6, 0.6) translateY(3rem);
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
