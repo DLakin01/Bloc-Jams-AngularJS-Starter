@@ -1,10 +1,10 @@
 (function() {
-  function AlbumCtrl() {
-    this.albumData = albumBonIver;
+  function AlbumCtrl(Fixtures) {
+    this.albumData = Fixtures.getAlbum();
     //this.albumData.songs
   }
 
   angular
     .module('blocJams')
-    .controller('AlbumCtrl', [AlbumCtrl]);
+    .controller('AlbumCtrl', ['Fixtures', AlbumCtrl]);
 })();
