@@ -1,14 +1,9 @@
 (function() {
-  function CollectionCtrl() {
-    this.albums = [];
-    for (var i=0; i < albumList.length; i++) {
-      this.albums.push(angular.copy(albumList[i]));
-    }
+  function CollectionCtrl(Fixtures) {
+    this.albums = Fixtures.getCollection();
   }
-
-  var albumList = [albumBonIver, albumFooFighters, albumSufjan];
 
   angular
     .module('blocJams')
-    .controller('CollectionCtrl', CollectionCtrl);
+    .controller('CollectionCtrl', ["Fixtures", CollectionCtrl]);
 })();

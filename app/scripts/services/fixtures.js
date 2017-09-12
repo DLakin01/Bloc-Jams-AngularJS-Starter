@@ -55,6 +55,10 @@
       ]
     };
 
+    Fixtures.getCollection = function() {
+      return [albumBonIver, albumFooFighters, albumSufjan];
+    };
+
     Fixtures.getAlbum = function() {
       return albumBonIver;
     };
