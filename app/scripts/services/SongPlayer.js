@@ -3,15 +3,17 @@
     var SongPlayer = {};
 
     var currentSong = null;
+
     /**
-    * Buzz object aduio file
+    * @desc Buzz object audio file
     *
     */
     var currentBuzzObject = null;
 
     /**
     * @function SetSong
-    * @desc Stops currently playing song and loads new audio file as currentBuzzObject
+    * @desc Private function. Stops currently playing song and loads new audio file as
+    *       currentBuzzObject
     *
     */
     var setSong = function(song) {
@@ -28,19 +30,40 @@
       currentSong = song;
     };
 
+    /**
+    * @function playSong
+    * @desc Private function. Plays currentBuzzObject returned by setSong, sets the playing boolean
+    *       to true
+    *
+    */
+    var playSong = function(song) {
+      currentBuzzObject.play();
+      song.playing = true;
+    };
+
+    /**
+    * @method SongPlayer.play
+    * @desc Public method. Checks if the clicked song is the same as the stored value of currentSong
+    *       If not, calls setSong and playSong to play a new audio file. If so, plays
+    *       paused song.
+    *
+    */
     SongPlayer.play = function(song) {
       if(currentSong !== song) {
         setSong(song);
-        currentBuzzObject.play();
-        song.playing = true;
+        playSong(song);
       }
       else if(currentSong === song) {
         if(currentBuzzObject.isPaused()) {
-          currentBuzzObject.play();
+          playSong(song);
         }
       }
     };
 
+    /**
+    * @method SongPlayer.pause
+    * @desc Public method. Pauses the currentBuzzObject and sets the playing boolean to false
+    */
     SongPlayer.pause = function(song) {
       currentBuzzObject.pause();
       song.playing = false;
