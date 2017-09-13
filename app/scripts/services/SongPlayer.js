@@ -19,8 +19,7 @@
     */
     var setSong = function(song) {
       if(currentBuzzObject) {
-        currentBuzzObject.stop();
-        SongPlayer.currentSong.playing = null;
+        stopSong(song);
       }
 
       currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -28,6 +27,7 @@
         preload: true
       });
       SongPlayer.currentSong = song;
+      SongPlayer.currentAlbum = Fixtures.getAlbum();
     };
 
     /**
@@ -51,13 +51,20 @@
     };
 
     /**
-    * @method SongPlayer.play
-    * @desc Public method. Checks if the clicked song is the same as the stored value of SongPlayer.currentSong
-    *       If not, calls setSong and playSong to play a new audio file. If so, plays
-    *       paused song.
+    * @function stopSong
+    * @desc Private function. Stops currentBuzzObject if one is present, sets the playing boolean
+    *       to null
     */
+    var stopSong = function(song) {
+      currentBuzzObject.stop();
+      song.playing = null;
+    }
 
     SongPlayer.currentSong = null;
+
+    /**
+    * The block of public code below controls play, pause, next, and previous behavior
+    */
 
     SongPlayer.play = function(song) {
       song = song || SongPlayer.currentSong;
@@ -72,15 +79,12 @@
       }
     };
 
-    /**
-    * @method SongPlayer.pause
-    * @desc Public method. Pauses the currentBuzzObject and sets the playing boolean to false
-    */
     SongPlayer.pause = function(song) {
       song = song || SongPlayer.currentSong;
       currentBuzzObject.pause();
       song.playing = false;
     };
+
 
     SongPlayer.previous = function() {
       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
@@ -96,7 +100,23 @@
         setSong(song);
         playSong(song);
       }
-    }
+    };
+
+    SongPlayer.next = function() {
+      var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+      currentSongIndex++;
+
+      if(currentSongIndex > currentAlbum.songs.length - 1) {
+        var song = currentAlbum.songs[0];
+        setSong(song);
+        playSong(song);
+      }
+      else {
+        var song = currentAlbum.songs[currentSongIndex];
+        setSong(song);
+        playSong(song);
+      }
+    };
 
     return SongPlayer;
   }
