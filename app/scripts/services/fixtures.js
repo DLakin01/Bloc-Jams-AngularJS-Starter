@@ -4,7 +4,7 @@
 
     var albumBonIver = {
       title: "22, A Million",
-      artist: "Bon Iver",
+      artist: "Bon Iver - ",
       label: "Jagjaguwar",
       year: "2016",
       albumArtUrl: '/assets/images/album_covers/22aMillion.jpeg',
@@ -25,7 +25,7 @@
 
     var albumFooFighters = {
       title: "Color and the Shape",
-      artist: "Foo Fighters",
+      artist: "Foo Fighters - ",
       label: "Roswell/Capitol",
       year: "1997",
       albumArtUrl: "/assets/images/album_covers/ColorAndTheShape.jpeg",
@@ -41,7 +41,7 @@
 
     var albumSufjan = {
       title: "Come On! Feel the Illinoise!",
-      artist: "Sufjan Stevens",
+      artist: "Sufjan Stevens - ",
       label: "Asthmatic Kitty Records",
       year: "2005",
       albumArtUrl: '/assets/images/album_covers/Illinoise.jpeg',
