@@ -14,16 +14,22 @@
         css: 'styles/landing.css'
       })
       .state('album', {
-        url: '/album',
+        url: '/album/:albumID',
         controller: 'AlbumCtrl as album',
         templateUrl: '/templates/album.html',
-        css: ['styles/album.css', 'styles/player_bar.css']
+        css: ['styles/album.css', 'styles/player_bar.css'],
+        params: {
+          albumID: null
+        }
       })
       .state('collection', {
         url: '/collection',
         controller: 'CollectionCtrl as collection',
         templateUrl: '/templates/collection.html',
-        css: 'styles/collection.css'
+        css: 'styles/collection.css',
+        params: {
+          albumID: null
+        }
       });
   }
   angular

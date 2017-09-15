@@ -38,7 +38,7 @@
         */
         var percentString = function() {
           var value = scope.value;
-          var max= scope.max;
+          var max = scope.max;
           var percent = value/max * 100;
           return percent + "%"
         };
@@ -62,13 +62,13 @@
           scope.$apply(function() {
             scope.value = percent * scope.max;
          });
-     });
+       });
 
-     $document.bind('mouseup.thumb', function() {
-         $document.unbind('mousemove.thumb');
-         $document.unbind('mouseup.thumb');
-     });
-   };
+        $document.bind('mouseup.thumb', function() {
+          $document.unbind('mousemove.thumb');
+          $document.unbind('mouseup.thumb');
+        });
+       };
       }
     };
   }
