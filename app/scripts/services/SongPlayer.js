@@ -1,11 +1,11 @@
 (function () {
-  function SongPlayer(Fixtures) {
+  function SongPlayer(Fixtures, $stateParams) {
     var SongPlayer = {};
 
     /**
     * @desc Private attribute - stores album data in the song player service
     */
-    var currentAlbum = Fixtures.getAlbum();
+    var currentAlbum = Fixtures.getAlbum($stateParams.albumID);
 
     /**
     * @desc Buzz object audio file
@@ -27,7 +27,7 @@
         preload: true
       });
       SongPlayer.currentSong = song;
-      SongPlayer.currentAlbum = Fixtures.getAlbum();
+      SongPlayer.currentAlbum = Fixtures.getAlbum($stateParams.albumID);
     };
 
     /**
@@ -89,6 +89,7 @@
     SongPlayer.previous = function() {
       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
       currentSongIndex--;
+      stopSong(SongPlayer.currentSong);
 
       if(currentSongIndex < 0) {
         var song = currentAlbum.songs[currentAlbum.songs.length - 1];
@@ -105,6 +106,7 @@
     SongPlayer.next = function() {
       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
       currentSongIndex++;
+      stopSong(SongPlayer.currentSong)
 
       if(currentSongIndex > currentAlbum.songs.length - 1) {
         var song = currentAlbum.songs[0];
@@ -123,5 +125,5 @@
 
   angular
     .module('blocJams')
-    .factory('SongPlayer', ['Fixtures', SongPlayer]);
+    .factory('SongPlayer', ['Fixtures', '$stateParams', SongPlayer]);
 })();

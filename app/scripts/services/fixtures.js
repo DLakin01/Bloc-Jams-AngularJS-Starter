@@ -4,7 +4,7 @@
 
     var albumBonIver = {
       title: "22, A Million",
-      id: "?" + "id=bon-iver",
+      id: "bon-iver",
       artist: "Bon Iver ",
       label: "Jagjaguwar",
       year: "2016",
@@ -26,7 +26,7 @@
 
     var albumFooFighters = {
       title: "Color and the Shape",
-      id: "?" + "id=foo-fighters",
+      id: "foo-fighters",
       artist: "Foo Fighters ",
       label: "Roswell/Capitol",
       year: "1997",
@@ -43,7 +43,7 @@
 
     var albumSufjan = {
       title: "Come On! Feel the Illinoise!",
-      id: "?" + "id=sufjan",
+      id: "sufjan",
       artist: "Sufjan Stevens ",
       label: "Asthmatic Kitty Records",
       year: "2005",
@@ -62,12 +62,10 @@
       return [albumBonIver, albumFooFighters, albumSufjan];
     };
 
-    Fixtures.getAlbum = function() {
-      var searchObject = unescape($location.search());
-      console.log(searchObject)
-      /*if(searchObject.id === "bon-iver"){return albumBonIver}
-      else if(searchObject.id === "foo-fighters"){return albumFooFighters}
-      else if(searchObject.id === "sufjan"){return albumSufjan}*/
+    Fixtures.getAlbum = function(albumID) {
+      if(albumID === "bon-iver"){return albumBonIver}
+      else if(albumID === "foo-fighters"){return albumFooFighters}
+      else if(albumID === "sufjan"){return albumSufjan}
     };
 
     return Fixtures;
@@ -75,5 +73,5 @@
 
   angular
     .module('blocJams')
-    .factory('Fixtures', ['$location', Fixtures]);
+    .factory('Fixtures', Fixtures);
 })();
