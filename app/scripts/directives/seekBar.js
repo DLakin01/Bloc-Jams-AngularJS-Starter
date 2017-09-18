@@ -6,7 +6,7 @@
       var seekBarWidth = seekBar.width();
       var offsetXPercent = offsetX / seekBarWidth;
       offsetXPercent = Math.max(0, offsetXPercent);
-      offsetXPercent = Math.min(100, offsetXPercent);
+      offsetXPercent = Math.min(1, offsetXPercent);
       return offsetXPercent;
     };
 
@@ -23,7 +23,9 @@
       templateUrl: '/templates/directives/seek_bar.html',
       replace: true,
       restrict: 'E',
-      scope: {onChange: '&'},
+      scope: {
+        onChange: '&'
+      },
       link: function(scope, element, attributes) {
 
         /**
@@ -48,8 +50,6 @@
         */
         attributes.$observe('value', function(newValue) {
           scope.value = newValue;
-          scope.thumbStyle(newValue);
-          scope.fillStyle(newValue)
         });
         attributes.$observe('max', function(newValue) {
           scope.max = newValue;
@@ -72,21 +72,11 @@
         * @desc Returns the width of the seek bar fill based on the calculated percent
         */
         scope.fillStyle = function(time) {
-          if(!time) {
             return {width: percentString()}
-          }
-          else if(time) {
-            return {width: calculateSongPercent(time)}
-          }
         };
 
         scope.thumbStyle = function(value) {
-          if(!time) {
             return {left: percentString()}
-          }
-          else if(time) {
-            return {left: calculateSongPercent(time)}
-          }
         };
 
         scope.onClickSeekBar = function(event) {
@@ -114,6 +104,9 @@
          if(typeof scope.onChange === 'function') {
            scope.onChange({value: newValue});
          }
+         /*if(typeof scope.onVolumeChange === 'function') {
+           scope.onVolumeChange({value: newValue});
+         }*/
        };
       }
     };

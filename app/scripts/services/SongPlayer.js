@@ -52,7 +52,8 @@
     *       to true
     */
     var playSong = function(song) {
-      currentBuzzObject.play();
+      currentBuzzObject.play()
+      SongPlayer.currentVolume = currentBuzzObject.getVolume();
       song.playing = true;
     };
 
@@ -73,6 +74,8 @@
     * @type {number}
     */
     SongPlayer.currentTime = null;
+
+    SongPlayer.currentVolume = null;
 
     /**
     * The block of public code below controls play, pause, next, and previous behavior
@@ -135,6 +138,13 @@
     SongPlayer.setCurrentTime = function(time) {
       if(currentBuzzObject) {
         currentBuzzObject.setTime(time);
+      }
+    }
+
+    SongPlayer.setVolume = function(volume) {
+      if(currentBuzzObject) {
+        currentBuzzObject.setVolume(volume);
+        SongPlayer.currentVolume = volume;
       }
     }
 
