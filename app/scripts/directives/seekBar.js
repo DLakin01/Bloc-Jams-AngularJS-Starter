@@ -8,13 +8,22 @@
       offsetXPercent = Math.max(0, offsetXPercent);
       offsetXPercent = Math.min(100, offsetXPercent);
       return offsetXPercent;
+    };
+
+    var calclateSongPercent = function(seekBar, value) {
+      var timeOffset = value;
+      var seekBarWidth = seekBar.width();
+      var offsetXPercent = timeOffset/seekBarWidth;
+      offsetXPercent = Math.max(0, offsetXPercent);
+      offsetXPercent = Math.min(100, offsetXPercent);
+      return offsetXPercent;
     }
 
     return {
       templateUrl: '/templates/directives/seek_bar.html',
       replace: true,
       restrict: 'E',
-      scope: {},
+      scope: {onChange: '&'},
       link: function(scope, element, attributes) {
 
         /**
@@ -32,6 +41,21 @@
         var seekBar = $(element);
 
         /**
+        * @method attributes.$observe
+        * @desc These two methods set an observer on the currentTime and duration of the
+        *       currntly playing song. When that value changes, continuously in the case
+        *       'value,' thse methods update the scope.
+        */
+        attributes.$observe('value', function(newValue) {
+          scope.value = newValue;
+          scope.thumbStyle(newValue);
+          scope.fillStyle(newValue)
+        });
+        attributes.$observe('max', function(newValue) {
+          scope.max = newValue;
+        });
+
+        /**
         * @function percentString()
         * @desc A function that calculates a percent based on the value and max value of
         *       the seek bar
@@ -47,24 +71,36 @@
         * @method scope.fillStyle
         * @desc Returns the width of the seek bar fill based on the calculated percent
         */
-        scope.fillStyle = function() {
-          return {width: percentString()};
+        scope.fillStyle = function(time) {
+          if(!time) {
+            return {width: percentString()}
+          }
+          else if(time) {
+            return {width: calculateSongPercent(time)}
+          }
         };
 
-        scope.thumbStyle = function() {
-          return {left: percentString()};
-        }
+        scope.thumbStyle = function(value) {
+          if(!time) {
+            return {left: percentString()}
+          }
+          else if(time) {
+            return {left: calculateSongPercent(time)}
+          }
+        };
 
         scope.onClickSeekBar = function(event) {
           var percent = calculatePercent(seekBar, event);
           scope.value = percent * scope.max;
+          notifyOnChange(scope.value);
         };
 
         scope.trackThumb = function() {
           $document.bind('mousemove.thumb', function(event) {
           var percent = calculatePercent(seekBar, event);
           scope.$apply(function() {
-            scope.value = percent * scope.max;
+            scope.value = percent * scope.max
+            notifyOnChange(scope.value);
          });
        });
 
@@ -72,6 +108,12 @@
           $document.unbind('mousemove.thumb');
           $document.unbind('mouseup.thumb');
         });
+       };
+
+       var notifyOnChange = function(newValue) {
+         if(typeof scope.onChange === 'function') {
+           scope.onChange({value: newValue});
+         }
        };
       }
     };

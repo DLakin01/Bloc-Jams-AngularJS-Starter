@@ -1,5 +1,5 @@
 (function () {
-  function SongPlayer(Fixtures, $stateParams) {
+  function SongPlayer($rootScope, Fixtures, $stateParams) {
     var SongPlayer = {};
 
     /**
@@ -26,6 +26,13 @@
         formats: ['mp3'],
         preload: true
       });
+
+      currentBuzzObject.bind('timeupdate', function() {
+        $rootScope.$apply(function() {
+          SongPlayer.currentTime = currentBuzzObject.getTime();
+        });
+      });
+
       SongPlayer.currentSong = song;
       SongPlayer.currentAlbum = Fixtures.getAlbum($stateParams.albumID);
     };
@@ -37,7 +44,6 @@
     var getSongIndex = function(song) {
       return currentAlbum.songs.indexOf(song);
     }
-
 
 
     /**
@@ -61,6 +67,12 @@
     }
 
     SongPlayer.currentSong = null;
+
+    /**
+    * @desc Current playback time (in seconds) of currently playing song
+    * @type {number}
+    */
+    SongPlayer.currentTime = null;
 
     /**
     * The block of public code below controls play, pause, next, and previous behavior
@@ -120,10 +132,16 @@
       }
     };
 
+    SongPlayer.setCurrentTime = function(time) {
+      if(currentBuzzObject) {
+        currentBuzzObject.setTime(time);
+      }
+    }
+
     return SongPlayer;
   }
 
   angular
     .module('blocJams')
-    .factory('SongPlayer', ['Fixtures', '$stateParams', SongPlayer]);
+    .factory('SongPlayer', ['$rootScope', 'Fixtures', '$stateParams', SongPlayer]);
 })();

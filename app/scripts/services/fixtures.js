@@ -13,7 +13,7 @@
       songs: [
         {title: "22 (OVER S∞∞N)", duration: "2:48", audioUrl: "assets/music/22, A Million/22 (OVER SN)"},
         {title: "10 d E A T h b R E a s T ⚄ ⚄", duration: "2:24", audioUrl: "assets/music/22, A Million/10 d E A T h b R E a s T"},
-        {title: "715 - CR∑∑KS", duration: "2:12", audioUrl: "assets/music/22, A Million/715 - CRKS"},
+        {title: "715 - CR∑∑KS", duration: "172", audioUrl: "assets/music/22, A Million/715 - CRKS"},
         {title: "33 \"GOD\"", duration: "3:33", audioUrl: "assets/music/22, A Million/33 GOD"},
         {title: "29 #Strafford APTS", duration: "4:05", audioUrl: "assets/music/22, A Million/29 Strafford APTS"},
         {title: "666 ʇ", duration: "4:12", audioUrl: "assets/music/22, A Million/666"},
