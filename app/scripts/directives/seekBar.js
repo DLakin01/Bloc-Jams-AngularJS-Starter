@@ -10,15 +10,6 @@
       return offsetXPercent;
     };
 
-    var calclateSongPercent = function(seekBar, value) {
-      var timeOffset = value;
-      var seekBarWidth = seekBar.width();
-      var offsetXPercent = timeOffset/seekBarWidth;
-      offsetXPercent = Math.max(0, offsetXPercent);
-      offsetXPercent = Math.min(100, offsetXPercent);
-      return offsetXPercent;
-    }
-
     return {
       templateUrl: '/templates/directives/seek_bar.html',
       replace: true,
