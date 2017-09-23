@@ -82,6 +82,9 @@
     */
 
     SongPlayer.play = function(song) {
+      SongPlayer.currentAlbum = Fixtures.getAlbum($stateParams.albumID);
+      currentAlbum = SongPlayer.currentAlbum;
+      console.log(currentAlbum);
       song = song || SongPlayer.currentSong;
       if(SongPlayer.currentSong !== song) {
         setSong(song);
@@ -103,7 +106,9 @@
 
     SongPlayer.previous = function() {
       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+      console.log(currentSongIndex);
       currentSongIndex--;
+      console.log(currentSongIndex);
       stopSong(SongPlayer.currentSong);
 
       if(currentSongIndex < 0) {
@@ -113,6 +118,8 @@
       }
       else {
         var song = currentAlbum.songs[currentSongIndex];
+        console.log(currentAlbum.title);
+        console.log(song.title);
         setSong(song);
         playSong(song);
       }
