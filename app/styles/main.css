@@ -19,7 +19,7 @@ body {
     min-height: 100%;
     padding-bottom: 200px;
  }
- 
+
 .navbar {
     position: relative;
     padding: 0.5rem;
@@ -79,23 +79,26 @@ body {
 /* Medium and small screens (640px) */
 @media (min-width: 40rem) {
     html { font-size: 112%; }
-    
+
     .column {
         float: left;
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    
+
     .column.full { width: 100%; }
     .column.two-thirds { width: 66.7%; }
     .column.half { width: 50%; }
     .column.third { width: 33.3%; }
-    .column.fourth { width: 25%; }
-    .column.flow-opposite { float: right; } 
+    .column.fourth {
+      width: 25%;
+      float: left;
+    }
+    .column.flow-opposite { float: left; }
 }
 
 /* Large screens (1024px) */
-@media (min-width: 64rem) {
+@media (min-width: 1200px) {
     html { font-size: 120%; }
 }
 
@@ -103,6 +106,7 @@ body {
 .clearfix:after {
     content: " ";
     display: table;
+    float: left;
 }
 
 .clearfix:after {
