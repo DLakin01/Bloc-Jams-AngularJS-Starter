@@ -151,6 +151,15 @@
     vertical-align: middle;
 }
 
+.player-bar .volume .ion-volume-high {
+  padding-right: 0.2em;
+}
+
+.player-bar .volume .ion-volume-mute {
+  font-size: 1.4rem;
+  padding-bottom: 0.2em;
+}
+
 .player-bar .volume .seek-bar {
     display: inline-block;
     width: 5.75rem;

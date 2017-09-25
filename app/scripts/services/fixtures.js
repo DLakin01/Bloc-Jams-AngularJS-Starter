@@ -37,7 +37,15 @@
         {title: "Monkey Wrench", duration: "231", audioUrl: "assets/music/The Color and the Shape/Monkey Wrench"},
         {title: "Hey, Johnny Park!", duration: "248", audioUrl: "assets/music/The Color and the Shape/Hey, Johnny Park!"},
         {title: "My Poor Brain", duration: "213", audioUrl: "assets/music/The Color and the Shape/My Poor Brain"},
-        {title: "Everlong", duration: "251", audioUrl: "assets/music/The Color and the Shape/Everlong"}
+        {title: "Wind Up", duration: "152", audioUrl: "assets/music/The Color and the Shape/Wind Up"},
+        {title: "Up In Arms", duration: "136", audioUrl: "assets/music/The Color and the Shape/Up In Arms"},
+        {title: "My Hero", duration: "246", audioUrl: "assets/music/The Color and the Shape/My Hero"},
+        {title: "See You", duration: "160", audioUrl: "assets/music/The Color and the Shape/See You"},
+        {title: "Enough Space", duration: "158", audioUrl: "assets/music/The Color and the Shape/Enough Space"},
+        {title: "February Stars", duration: "290", audioUrl: "assets/music/The Color and the Shape/February Stars"},
+        {title: "Everlong", duration: "251", audioUrl: "assets/music/The Color and the Shape/Everlong"},
+        {title: "Walking After You", duration: "305", audioUrl: "assets/music/The Color and the Shape/Walking After You"},
+        {title: "New Way Home", duration: "346", audioUrl: "assets/music/The Color and the Shape/New Way Home"}
       ]
     };
 
@@ -54,7 +62,17 @@
         {title: "The Black Hawk War", duration: "134", audioUrl: "assets/music/Come On! Feel the Illinoise!/The Black Hawk War"},
         {title: "Come On! Feel the Illinoise!", duration: "405", audioUrl: "assets/music/Come On! Feel the Illinoise!/Come On! Feel the Illinoise!"},
         {title: "John Wayne Gacy, Jr.", duration: "199", audioUrl: "assets/music/Come On! Feel the Illinoise!/John Wayne Gacy, Jr."},
-        {title: "Jacksonville", duration: "324", audioUrl: "assets/music/Come On! Feel the Illinoise!/Jacksonville"}
+        {title: "Jacksonville", duration: "324", audioUrl: "assets/music/Come On! Feel the Illinoise!/Jacksonville"},
+        {title: "A Short Reprise for Mary Todd, Who Went Insane", duration: "51", audioUrl: "assets/music/Come On! Feel the Illinoise!/Mary Todd"},
+        {title: "Decatur, or, Round of Applause for Your Stepmother!", duration: "185", audioUrl: "assets/music/Come On! Feel the Illinoise!/Decatur"},
+        {title: "One Last Whoo hoo! For the Pullman", duration: "10", audioUrl: "assets/music/Come On! Feel the Illinoise!/One Last Whoo hoo"},
+        {title: "Chicago", duration: "365", audioUrl: "assets/music/Come On! Feel the Illinoise!/Chicago"},
+        {title: "Casimir Pulaski Day", duration: "355", audioUrl: "assets/music/Come On! Feel The Illinoise/Casimir Pulaski Day"},
+        {title: "To the Workers of the Rock River Valley Region", duration: "105", audioUrl: "assets/music/Come On! Feel the Illinoise!/To the Workers"},
+        {title: "The Man of Metropolis Steals Our Hearts", duration: "378", audioUrl: "assets/music/Come On! Feel the Illinoise!/Man of Metropolis"},
+        {title: "Prairie Fire That Wanders About", duration: "132", audioUrl: "assets/music/Come On! Feel the Illinoise!/Prairie Fire"},
+        {title: "A Conjunction of Drones", duration: "26", audioUrl: "assets/music/Come On! Feel the Illinoise!/Drones"},
+        {title: "The Predatory Wasp of the Palisades Is Out To Get Us!", duration: "324", audioUrl: "assets/music/Come On! Feel the Illinoise!/Predatory Wasp"}
       ]
     };
 

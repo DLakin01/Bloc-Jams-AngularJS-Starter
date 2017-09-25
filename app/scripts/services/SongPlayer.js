@@ -57,6 +57,17 @@
       song.playing = true;
     };
 
+    var trackSong = function(song) {
+      currentBuzzObject.bind('advance', function() {
+        $rootScope.$apply(function() {
+          if(currentBuzzObject.isEnded()) {
+            SongPlayer.next();
+          };
+        });
+      });
+    }
+
+
     /**
     * @function stopSong
     * @desc Private function. Stops currentBuzzObject if one is present, sets the playing boolean
@@ -84,7 +95,6 @@
     SongPlayer.play = function(song) {
       SongPlayer.currentAlbum = Fixtures.getAlbum($stateParams.albumID);
       currentAlbum = SongPlayer.currentAlbum;
-      console.log(currentAlbum);
       song = song || SongPlayer.currentSong;
       if(SongPlayer.currentSong !== song) {
         setSong(song);
@@ -106,9 +116,7 @@
 
     SongPlayer.previous = function() {
       var currentSongIndex = getSongIndex(SongPlayer.currentSong);
-      console.log(currentSongIndex);
       currentSongIndex--;
-      console.log(currentSongIndex);
       stopSong(SongPlayer.currentSong);
 
       if(currentSongIndex < 0) {
@@ -146,12 +154,23 @@
       if(currentBuzzObject) {
         currentBuzzObject.setTime(time);
       }
-    }
+    };
 
     SongPlayer.setVolume = function(volume) {
       if(currentBuzzObject) {
         currentBuzzObject.setVolume(volume);
         SongPlayer.currentVolume = volume;
+      }
+    };
+
+    SongPlayer.toggleMute = function() {
+      var oldVolume;
+      if(!currentBuzzObject.isMuted()) {
+        oldVolume = SongPlayer.currentVolume;
+        currentBuzzObject.mute();
+      }
+      else {
+        currentBuzzObject.unmute();
       }
     }
 

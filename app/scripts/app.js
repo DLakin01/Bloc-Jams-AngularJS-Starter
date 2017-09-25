@@ -31,6 +31,15 @@
         params: {
           albumID: null
         }
+      })
+      .state('my-music', {
+        url: '/my-music/:userID',
+        controller: 'UserCtrl as user',
+        templateUrl: '/templates/user.html',
+        css: 'styles/user.css',
+        params: {
+          userID: null
+        }
       });
   }
   angular

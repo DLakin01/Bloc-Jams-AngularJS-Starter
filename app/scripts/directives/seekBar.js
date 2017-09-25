@@ -15,7 +15,8 @@
       replace: true,
       restrict: 'E',
       scope: {
-        onChange: '&'
+        onChange: '&',
+
       },
       link: function(scope, element, attributes) {
 
@@ -95,9 +96,6 @@
          if(typeof scope.onChange === 'function') {
            scope.onChange({value: newValue});
          }
-         /*if(typeof scope.onVolumeChange === 'function') {
-           scope.onVolumeChange({value: newValue});
-         }*/
        };
       }
     };
