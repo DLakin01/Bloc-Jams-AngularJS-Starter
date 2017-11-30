@@ -64,7 +64,7 @@
       artist: "Sleigh Bells ",
       label: "N.E.E.T./Mom + Pop",
       year: "2010",
-      albumArtUrl: "/assets/images/album_covers/treats.jpg",
+      albumArtUrl: "/assets/images/album_covers/Treats.jpg",
       songs: [
         {title: "Tell 'Em'", duration: "179", audioUrl: "assets/music/Treats/Tell 'Em"},
         {title: "Kids", duration: "167", audioUrl: "assets/music/Treats/Kids"},
