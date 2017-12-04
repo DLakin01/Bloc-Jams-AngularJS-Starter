@@ -6,7 +6,8 @@ Bloc Jams is a compact, light-weight music player built in Angular, using jQuery
 
 In building Bloc Jams, I did hit some stumbling blocks. In particular, for a time the various links on the Collection Page all pointed to the same place, even if they referred to different albums. I got around that issue by making use of URL queries and the QueryData library. By inserting readable information into the URLs of the various links, I was able to use the QueryData information to tell the rest of the code which album to load. Some of the relevant code is on display below:
 
-{% highlight javascript %}
+```javascript
+
 var albumPicker = function() {
   var queryData = new QueryData;
   if(queryData.albumID === '1') {
@@ -18,8 +19,9 @@ var albumPicker = function() {
   else if(queryData.albumID === '3') {
     setCurrentAlbum(albumSufjan);
   }
-};
-{% endhighlight %}
+}
+
+```
 
 
 You can check out Bloc Jams and listen to some good tunes [here.](https://bloc-jammr.herokuapp.com) Happy listening!
