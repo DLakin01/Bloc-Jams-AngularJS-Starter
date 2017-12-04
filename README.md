@@ -1,28 +1,27 @@
-# Bloc Jams AngularJS Starter
+# Bloc Jams AngularJS
 
-This repository serves as a starter project for Bloc's AngularJS-driven music player app. 
+Bloc Jams is a compact, light-weight music player built in Angular, using jQuery, vanilla JavaScript, and several outside libraries to offer fun listening experience to users. This project featured my first in-depth use of the Angular framework, which I immediately took to. I had an intuitive feel for the modularity and elegance of the Model-View-Controller framework, and used that to break out the functions of a music player across the breadth of an Angular app.
 
-To get started, [fork](https://help.github.com/articles/fork-a-repo/) this repository. Forking a repository makes a copy and adds it to your own GitHub account. This is an important step, because the your work will need be on your Github account and not Bloc's. 
+<div class="img_row squish">
+  <img class="col three" src="assets/images/blocjams_example.jpeg">
+</div>
 
-Rename your forked repository to `bloc-jams-angularjs` in Github (available under the **Settings** tab of your repository).
+In building Bloc Jams, I did hit some stumbling blocks. In particular, for a time the various links on the Collection Page all pointed to the same place, even if they referred to different albums. I got around that issue by making use of URL queries and the QueryData library. By inserting readable information into the URLs of the various links, I was able to use the QueryData information to tell the rest of the code which album to load. Some of the relevant code is on display below:
 
-Open your terminal, `cd` into your `~/bloc` directory, and clone your repository.
-
-```bash
-$ cd ~/bloc
-$ git clone https://github.com/{username}/bloc-jams-angularjs.git
-```
-
-Make sure to replace `{username}` with your GitHub username.
-
-1. Change into the directory: `$ cd bloc-jams-angularjs`.
-2. Run `$ npm install` to download/install the needed dependencies
-3. Start the node server: `npm start`.
-4. Open a web browser, go to `http://localhost:3000`, and verify that you see the Bloc Jams landing page.
-
-You can press `ctrl + c` at any time to stop the server. 
-
-You'll want to keep the server running whenever you're working on your project. 
-
+{% highlight javascript %}
+var albumPicker = function() {
+  var queryData = new QueryData;
+  if(queryData.albumID === '1') {
+    setCurrentAlbum(albumBonIver);
+  }
+  else if(queryData.albumID === '2') {
+    setCurrentAlbum(albumFooFighters);
+  }
+  else if(queryData.albumID === '3') {
+    setCurrentAlbum(albumSufjan);
+  }
+};
+{% endhighlight %}
 
 
+You can check out Bloc Jams and listen to some good tunes [here.](https://bloc-jammr.herokuapp.com) Happy listening!
